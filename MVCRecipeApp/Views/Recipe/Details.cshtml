@@ -1,0 +1,36 @@
+﻿@model MVCRecipeApp.Models.Recipe
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Recipe</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.recipeName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.recipeName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.recipeIngredients)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.recipeIngredients)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.recipeImagePath)
+    </div>
+    <div class="display-field">
+        <img src="@Url.Content(Model.recipeImagePath)" width="250" height="250" />
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.recipeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

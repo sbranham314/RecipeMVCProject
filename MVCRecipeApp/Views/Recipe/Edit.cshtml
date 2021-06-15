@@ -1,0 +1,54 @@
+﻿@model MVCRecipeApp.Models.Recipe
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Recipe</legend>
+
+        @Html.HiddenFor(model => model.recipeID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.recipeName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.recipeName)
+            @Html.ValidationMessageFor(model => model.recipeName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.recipeIngredients)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.recipeIngredients)
+            @Html.ValidationMessageFor(model => model.recipeIngredients)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.recipeImagePath)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.recipeImagePath)
+            @Html.ValidationMessageFor(model => model.recipeImagePath)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
